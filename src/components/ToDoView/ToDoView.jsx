@@ -1,7 +1,14 @@
-const toDo = [];
-
+import { useSelector, useDispatch } from "react-redux";
+import { removeTask } from "../../redux/actions";
 
 export const ToDoView = () => {
+  const task = useSelector((state) => state.toDoReducer.tasks || []);
+  const dispatch = useDispatch();
+
+  const deleteTask = (id) => {
+    dispatch(removeTask(id));
+  };
+
   return (
     <div className="bg-slate-200 ">
       <div className="max-w-[1400px] w-[100%] h-[94vh] flex justify-center items-center mx-auto">
@@ -16,18 +23,17 @@ export const ToDoView = () => {
                   To Do
                 </td>
               </tr>
-              {toDo.map((task) => (
+              {task.map(({ id, description }) => (
                 <tr
-                  key={task.id}
-                  {...task}
-
+                  key={id}
                   className="group/task odd:bg-white even:bg-slate-100"
+                  onClick={() => deleteTask(id)}
                 >
                   <td className="w-[50px] border p-1 rounded-bl-lg group-hover/task:bg-sky-100">
-                    {task.id}
+                    {id}
                   </td>
                   <td className="w-[400px] border p-1 rounded-br-lg cursor-pointer group-hover/task:bg-sky-100">
-                    {task.name}
+                    {description}
                   </td>
                 </tr>
               ))}

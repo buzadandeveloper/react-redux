@@ -8,8 +8,8 @@ export const addTask = (task) => {
 };
 
 export const removeTask = (id) => {
-    return {
-        type: actions.REMOVE_TASK,
-        payload: id
-    }
-}
+  return {
+    type: actions.REMOVE_TASK,
+    payload: id,
+  };
+};
