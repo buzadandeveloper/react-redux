@@ -6,16 +6,13 @@ import { addTask } from "../../redux/actions";
 export const NavToDo = () => {
   const [tasks, setTasks] = useState("");
   const dispatch = useDispatch();
-
   const handleOnChange = (e) => {
     setTasks(e.target.value);
   };
 
   const handleAddTask = (e) => {
     e.preventDefault();
-
     if (tasks.trim() === "") return;
-
     dispatch(addTask(tasks));
     setTasks("");
   };
