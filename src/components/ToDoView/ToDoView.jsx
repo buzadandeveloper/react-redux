@@ -4,7 +4,6 @@ import { removeTask } from "../../redux/actions";
 export const ToDoView = () => {
   const task = useSelector((state) => state.toDoReducer.tasks || []);
   const dispatch = useDispatch();
-
   const deleteTask = (id) => {
     dispatch(removeTask(id));
   };
