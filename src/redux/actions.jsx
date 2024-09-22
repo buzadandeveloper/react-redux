@@ -11,5 +11,6 @@ export const removeTask = (id) => {
   return {
     type: actions.REMOVE_TASK,
     payload: id,
+    
   };
 };
