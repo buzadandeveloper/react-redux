@@ -1,7 +1,7 @@
 import * as actions from "./actionTypes";
 
 const initialState = {
-  tasks: [],
+  tasks: JSON.parse(localStorage.getItem("tasks")) || [],
 };
 
 export const toDoReducer = (state = initialState, action) => {
