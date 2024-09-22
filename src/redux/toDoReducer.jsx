@@ -21,7 +21,6 @@ export const toDoReducer = (state = initialState, action) => {
       const updateTasks = state.tasks.filter(
         (task) => task.id !== action.payload
       );
-
       return {
         ...state,
         tasks: updateTasks.map((t, index) => ({
